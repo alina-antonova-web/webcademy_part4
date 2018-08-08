@@ -7,6 +7,13 @@
         <div class="description-error"><?=$error['description']?></div>
       </div>
 <?php }
+} 
+
+if (isset($success)) {
+	foreach ($success as $succes) {
+	?>
+	    <div class="succes-message"><?=$succes?></div>
+	<?php }
 } ?>
 
 

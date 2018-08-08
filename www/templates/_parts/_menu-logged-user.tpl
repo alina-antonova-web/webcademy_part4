@@ -1,7 +1,8 @@
 <div class="menu-admin">
   <div class="tab-profile">
-    <div class="avatar avatar-small"><img src="<?php echo HOST;?>templates/assets/img/avatar-img/photo-small.jpg" alt="Админ"/></div>
-    <div class="tab-profile__name">Юрий Ключевский</div><a class="btn btn--admin" href="#">Администратор</a>
+    <div class="avatar avatar-small"><img src="<?php echo HOST;?>templates/assets/img/avatar-img/photo-small.jpg"/></div>
+    <div class="tab-profile__name"><?=$currentUser->name?> <?=$currentUser->secondname?></div>
+    <a class="btn btn--admin" href="<?=HOST?>profile"><?=$role?></a>
 
   </div>
   <div class="tab-wrap">

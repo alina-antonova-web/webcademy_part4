@@ -7,7 +7,7 @@ $(document).ready(function() {
 	var pullNavOpen = $('#navigation-toggle .header-user__mobile-toggle');
 	var pullNavClose = $('#navigation-toggle .header-user__mobile-close');
 	//  ID навигации авторизации
-	var toggleLogin = $('#navigation-login');	
+	// var toggleLogin = $('#navigation-login');	
 	// Классы 
 	var toggleMenu =  $('#navigation-menu');
 
