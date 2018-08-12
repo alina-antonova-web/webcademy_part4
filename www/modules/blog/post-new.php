@@ -24,7 +24,7 @@ if (isset($_POST['addPost'])) {
 		$post = R::dispense('blog');
 		$post->title = htmlentities($_POST['title']);
 		$post->text = htmlentities($_POST['description']);
-		$post->author = $currentUser->name . ' ' . $currentUser->secondname;
+		$post->author = $currentUser->id;
 		$post->tag = htmlentities($_POST['tag']);
 
 		if ( isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != "" ) {
@@ -89,6 +89,8 @@ if (isset($_POST['addPost'])) {
 		exit();
 	}
 }
+
+$categories = R::find('categories', 'ORDER BY name');
 
 ob_start();
 include ROOT . "templates/blog/post-new.tpl";

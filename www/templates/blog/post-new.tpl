@@ -11,8 +11,13 @@
             <input class="form-full-width" type="text" name="title" placeholder="Введите название поста"/>
           </section>
           <section class="add-post">
-            <div class="add-post__title">Тэг, раздел, тема</div>
-            <input class="form-full-width" type="text" name="tag" placeholder="Введите название тэга, раздела, темы"/>
+            <div class="add-post__title">Категория</div>
+            <select name="tag">
+              <option disabled>Выберите категорию</option>
+              <?php foreach ($categories as $category): ?>
+                <option value="<?=$category['id']?>"><?=$category['name']?></option>
+              <?php endforeach ?>
+           </select>
           </section>
           <section class="add-post">
             <div class="add-post__title">Изображение</div>

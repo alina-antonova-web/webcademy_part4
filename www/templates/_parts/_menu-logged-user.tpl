@@ -25,7 +25,8 @@
       <label for="tab2">Админка</label>
       <nav Class="menu-admin">
         <ul>
-          <li><i class="fas fa-plus-circle"></i><a href="/post-edit.html">Пост</a></li>
+          <li><i class="fas fa-plus-circle"></i><a href="<?=HOST?>blog/post-new">Пост</a></li>
+          <li><i class="fas fa-folder"></i><a href="<?=HOST?>blog/categories">Категории</a></li>
           <li><i class="fas fa-edit"></i><a href="/about-edit.html">Обо мне</a></li>
           <li><i class="fas fa-plus-circle"></i><a href="/work-edit.html">Работа</a></li>
           <li><i class="fas fa-edit"></i><a href="/contact-edit.html">Контакты</a></li>

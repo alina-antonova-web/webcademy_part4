@@ -9,6 +9,8 @@ if ( !isAdmin()){
 //If form was send
 $errors = array();
 
+$post =R::load('blog', $_GET['id']);
+
 if (isset($_POST['editPost'])) {	
 
 	if (trim($_POST['title']) == '' ){
@@ -21,11 +23,9 @@ if (isset($_POST['editPost'])) {
 
 	if (empty($errors)) {
 
-		$post = R::dispense('blog');
 		$post->title = htmlentities($_POST['title']);
 		$post->text = htmlentities($_POST['description']);
-		$post->author = $currentUser->name . ' ' . $currentUser->secondname;
-		$post->tag = htmlentities($_POST['tag']);
+		$post->tag = $_POST['tag'];
 
 		if ( isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != "" ) {
 			
@@ -89,6 +89,9 @@ if (isset($_POST['editPost'])) {
 		exit();
 	}
 }
+
+$categories = R::find('categories', 'ORDER BY name');
+
 
 ob_start();
 include ROOT . "templates/blog/post-edit.tpl";

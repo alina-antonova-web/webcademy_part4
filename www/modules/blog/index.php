@@ -1,6 +1,16 @@
 <?php 
 
-$blogPosts = R::find('blog', 'ORDER BY id DESC');
+if (isset($_GET['tag'])) {
+	$blogPosts = R::find('blog', "tag = '".htmlentities($_GET['tag'])."' ORDER BY id DESC");
+	if (count($blogPosts) == 0){
+		$blogPosts = R::find('blog', 'ORDER BY id DESC');
+	}
+} else {
+	$blogPosts = R::find('blog', 'ORDER BY id DESC');	
+}
+
+
+
 
 //Content for main part
 ob_start();

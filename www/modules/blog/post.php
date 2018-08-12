@@ -1,6 +1,15 @@
 <?php 
 
-$post = R::findOne('blog', 'id = ?', array($_GET['id']));
+//$post = R::findOne('blog', 'id = ?', array($_GET['id']));
+
+$post = R::getAll("SELECT blog.*, users.name, users.secondname, categories.name as catName  FROM blog 
+	INNER JOIN users ON blog.author = users.id
+	INNER JOIN categories ON blog.tag = categories.id 
+ 	WHERE
+	        blog.id = '".htmlentities($_GET['id'])."'
+	LIMIT 1");
+
+$post = $post[0];
 
 $errors = array();
 
@@ -27,7 +36,7 @@ if ( isLoggedIn() && isset($_POST['addComment'])){
 	$comments = R::getAll("SELECT comments.*, users.photo, users.name, users.secondname  FROM comments INNER JOIN users 
 	    WHERE 
 	        comments.author_id = users.id AND
-	        comments.post_id = '". $_GET['id'] . "'
+	        comments.post_id = '". htmlentities($_GET['id']) . "'
 	    ORDER BY comments.date DESC
 	    ");
 
