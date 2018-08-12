@@ -1,8 +1,7 @@
   <?php 
-    if ( isset($_SESSION['logged_user']) && $_SESSION['login'] == 1 && $_SESSION['role'] == "admin") {
-      $currentUser = $_SESSION['logged_user'];
+    if ( isAdmin() ) {
       include ROOT."templates/_parts/_admin-panel.tpl"; 
-  } 
+    } 
   ?>
 
   <div class="header-user">
@@ -28,13 +27,13 @@
         include ROOT."templates/_parts/_logo.tpl";
 
         // Box for logged user
-        if ( isset($_SESSION['logged_user']) && $_SESSION['login'] == 1 && $_SESSION['role'] == "user") {
+        if ( isUser() ) {
           $currentUser = $_SESSION['logged_user'];
           include ROOT."templates/_parts/_header-user-logged-in.tpl";  
         }
 
         // Box for guest
-        if (!isset($_SESSION['login'])) {
+        if ( (!isAdmin()) && (!isUser()) ) {
           include ROOT."templates/_parts/_header-user-login.tpl";
         } 
 
@@ -43,11 +42,11 @@
 
       <div class="header-user__nav-box" id="navigation-menu">
         <?php 
-          if ( isset($_SESSION['logged_user']) && $_SESSION['login'] == 1) {
-            if ($_SESSION['role'] == "user") {
-              $role = 'Пользователь';
-            } else {
+          if ( isLoggedIn() ) {
+            if (isAdmin()) {
               $role = 'Администратор';
+            } else {
+              $role = 'Пользователь';
             }
             include ROOT."templates/_parts/_menu-logged-user.tpl";  
           } else {

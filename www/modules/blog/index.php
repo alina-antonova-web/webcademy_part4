@@ -1,9 +1,6 @@
 <?php 
 
-$title = "Blog";
-$content = "Content of blog page";
-
-$blogPosts = ['Post 1', 'Post 2', 'Post 3', 'Post 4', 'Post 5', 'Post 6'];
+$blogPosts = R::find('blog', 'ORDER BY id DESC');
 
 //Content for main part
 ob_start();

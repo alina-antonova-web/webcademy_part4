@@ -20,6 +20,63 @@
 		$startY = max(0, $centreY - $cropHeightHalf);
 		$imagick->cropImage($cropWidth, $cropHeight, $startX, $startY);
 		return $imagick;
+		$imagick->destroy();
 	
 	}
+
+	function createThumbnailBig($imagePath, $cropWidth, $cropHeight) {
+		$imagick = new Imagick($imagePath);
+		$width = $imagick->getImageWidth();
+		$height = $imagick->getImageHeight();
+
+		if ($width >= $height) {
+			$imagick->thumbnailImage($cropWidth, 0);
+		} else {
+			$imagick->thumbnailImage($cropWidth, 0);
+			$imagick->cropThumbnailImage($cropWidth, $cropHeight);
+		}
+
+		return $imagick;
+		$imagick->destroy();
+
+	}
+
+	function createThumbnailCrop($imagePath, $cropWidth, $cropHeight) {
+
+		$imagick = new Imagick($imagePath);
+		$width = $imagick->getImageWidth();
+		$height = $imagick->getImageHeight();
+		$imagick->cropThumbnailImage($cropWidth, $cropHeight);
+		return $imagick;
+		$imagick->destroy();
+
+	}
+
+	function createThumbnailSquare($imagePath, $cropWidth, $cropHeight) {
+		$imagick = new Imagick($imagePath);
+		$width = $imagick->getImageWidth();
+		$height = $imagick->getImageHeight();
+
+		if ($width >= $height) {
+			$imagick->thumbnailImage(0, $cropHeight);
+			$width = $imagick->getImageWidth();
+			$height = $imagick->getImageHeight();
+			$centreX = round($width / 2);
+			$centreY = round($height / 2);
+			$cropWidthHalf = round($cropWidth / 2);
+			$cropHeightHalf = round($cropHeight / 2);
+			$startX = max(0, $centreX - $cropWidthHalf);
+			$startY = max(0, $centreY - $cropHeightHalf);
+			$imagick->cropImage($cropWidth, $cropHeight, $startX, $startY);
+		} else {
+			$imagick->thumbnailImage($cropWidth, 0);
+			$imagick->cropThumbnailImage($cropWidth, $cropHeight);
+		}
+
+		return $imagick;
+		$imagick->destroy();
+		
+	}
+
+
 ?>

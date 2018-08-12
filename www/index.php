@@ -2,7 +2,12 @@
 
 require('config.php');
 require('db.php');
+require('libs/functions.php');
 session_start();
+
+if ( isLoggedIn() ) {
+	$currentUser = $_SESSION['logged_user'];
+}
 
 
 /*.......................................
@@ -57,12 +62,22 @@ switch ( $uri[0] ) {
 	case 'contacts':
 		include "modules/contacts/index.php";
 		break;
+
+
 	case 'blog':
 		include "modules/blog/index.php";
 		break;
 	case 'blog/post':
 		include "modules/blog/post.php";
 		break;
+	case 'blog/post-new':
+		include "modules/blog/post-new.php";
+		break;
+	case 'blog/post-edit':
+		include "modules/blog/post-edit.php";
+		break;
+
+
 	default:
 		include "modules/main/index.php";
 		break;

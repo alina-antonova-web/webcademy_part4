@@ -73,7 +73,7 @@ if (isset($_POST['profile-update'])) {
 			$resized_file = $avatarFolderLocation . $db_file_name;
 			$wmax = 222;
 			$hmax = 222;
-			$img = createThumbnail($target_file, $wmax, $hmax);
+			$img = createThumbnailSquare($target_file, $wmax, $hmax);
 			$img->writeImage($resized_file);
 
 			// Small avatar
@@ -81,7 +81,7 @@ if (isset($_POST['profile-update'])) {
 			$resized_file = $avatarFolderLocation . 'small/' . $db_file_name;
 			$wmax = 48;
 			$hmax = 48;
-			$img = createThumbnail($target_file, $wmax, $hmax);
+			$img = createThumbnailSquare($target_file, $wmax, $hmax);
 			$img->writeImage($resized_file);
 
 			$user->photo = $db_file_name;

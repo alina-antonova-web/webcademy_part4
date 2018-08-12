@@ -1,9 +1,35 @@
 <?php 
 
-$title = "Blog";
-$content = "Content of blog page";
+$post = R::findOne('blog', 'id = ?', array($_GET['id']));
 
-$blogPosts = ['title' => 'Posts title', 'text' => 'Posts text'];
+$errors = array();
+
+if ( isLoggedIn() && isset($_POST['addComment'])){
+	if (trim($_POST['message']) == '' ){
+		$errors[] = ['title' => 'Комментарий не может быть пустым.'];
+	}
+
+	if (empty($errors)) {
+
+		$comment = R::dispense('comments');
+		$comment->text = htmlentities($_POST['message']);
+		$comment->post_id = $post['id'];
+		$comment->author_id = $currentUser->id;
+		R::store($comment);
+
+
+		header('Location: '.HOST.'blog/post?id='.$_GET['id']);
+		exit();
+	}
+}
+
+// SELECT comments
+	$comments = R::getAll("SELECT comments.*, users.photo, users.name, users.secondname  FROM comments INNER JOIN users 
+	    WHERE 
+	        comments.author_id = users.id AND
+	        comments.post_id = '". $_GET['id'] . "'
+	    ORDER BY comments.date DESC
+	    ");
 
 //Content for main part
 ob_start();
