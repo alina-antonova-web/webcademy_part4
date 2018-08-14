@@ -7,9 +7,9 @@ function handleFileSelect(evt) {
     var f = file[0];
     console.log(file.value);
     // Only process image files.
-    if (!f.type.match('image.*')) {
+    /*if (!f.type.match('image.*')) {
         alert("Image only please....");
-    }
+    }*/
 
     for(var i = 0 ; i<fileNameInp.length; i++){
         fileNameInp[i].value = f.name;
@@ -21,8 +21,8 @@ function handleFileSelect(evt) {
     
     // Closure to capture the file information.
     reader.onload = (function(theFile) {
-        if(theFile.size > 2000000){
-            alert('До 2 Мб');
+        if(theFile.size > 4194304){
+            alert('До 4 Мб');
             return;
         }
         else{

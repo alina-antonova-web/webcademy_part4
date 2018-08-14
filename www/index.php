@@ -60,8 +60,19 @@ switch ( $uri[0] ) {
 	case 'about':
 		include "modules/about/index.php";
 		break;
+
 	case 'contacts':
 		include "modules/contacts/index.php";
+		break;
+	case 'contacts-edit':
+		include "modules/contacts/edit.php";
+		break;
+
+	case 'messages':
+		include "modules/messages/index.php";
+		break;
+	case 'message-delete':
+		include "modules/messages/delete.php";
 		break;
 
 	// ::::::::::::: BLOG :::::::::::::::::

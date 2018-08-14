@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2018 at 11:52 PM
+-- Generation Time: Aug 14, 2018 at 01:41 PM
 -- Server version: 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -115,6 +115,59 @@ INSERT INTO `comments` (`id`, `post_id`, `author_id`, `date`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `secondname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `skype` varchar(255) NOT NULL,
+  `vk` varchar(255) NOT NULL,
+  `fb` varchar(255) NOT NULL,
+  `github` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `secondname`, `email`, `skype`, `vk`, `fb`, `github`, `phone`, `address`) VALUES
+(1, '', '', 'antonova.alina@gmail.com', '', '', '', 'https://github.com/alina-antonova-web', '+4915754833931', 'Sonnenhalde 83,\r\n\r\n89075 Ulm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `text` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `file_name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `name`, `email`, `text`, `file`, `date`, `file_name`) VALUES
+(2, 'Василий', 'test@test.ru', 'test', NULL, '2018-08-13 21:50:44', NULL),
+(4, 'maliniaka', 'test@test.ru', 'where is file?', '655505306832.jpg', '2018-08-13 21:50:44', NULL),
+(5, 'Емельян', 'test@test.ru', 'dad', '925062370439.png', '2018-08-13 21:53:23', 'php-hw04.png'),
+(6, '', 'only_email@test.ru', '', NULL, '2018-08-13 22:19:46', NULL),
+(20, '', 'test@test.ru', 'pdf', '998046487243.pdf', '2018-08-14 11:14:56', 'extreme_programming.pdf');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -172,6 +225,18 @@ ALTER TABLE `comments`
   ADD KEY `author_id` (`author_id`);
 
 --
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -201,6 +266,16 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `users`
 --

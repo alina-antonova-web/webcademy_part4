@@ -28,10 +28,10 @@
     				  <td><a class="full-post__link" href="<?=HOST?>blog?tag=<?=$category['id']?>"><?=$category['name']?></a>
               </td>
     				  <td>
-    				  	<a href="<?=HOST?>blog/category-edit?id=<?=$category['id']?>"  class="button button-edit"> Редактировать </a>
+    				  	<a href="<?=HOST?>blog/category-edit?id=<?=$category['id']?>"  class="button button-edit margin-0"> Редактировать </a>
     				  </td>
     				  <td>
-    				  	<a href="<?=HOST?>blog/category-delete?id=<?=$category['id']?>" class="button button-delete"> Удалить </a>
+    				  	<a href="<?=HOST?>blog/category-delete?id=<?=$category['id']?>" class="button button-delete margin-0"> Удалить </a>
     				  </td>
     				</tr>
 

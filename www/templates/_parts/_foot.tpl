@@ -1,3 +1,6 @@
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIr67yxxPmnF-xb4JVokCVGgLbPtuqxiA&callback=initMap"></script>
+  <script src="<?=HOST?>templates/assets/js/googleMap.js"></script>
  <!-- build:jsLibs js/libs.js -->
   <script src="<?php echo HOST;?>templates/assets/libs/jquery/jquery.min.js"></script><!-- endbuild -->
 <!-- build:jsVendor js/vendor.js --><!-- endbuild -->

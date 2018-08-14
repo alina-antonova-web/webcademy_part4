@@ -307,7 +307,7 @@ table {
   border: 0;
 }
 
-.button-delete, .button-edit, .button-regular {
+.margin-0 {
     margin: 0;
 }
 
@@ -319,4 +319,8 @@ table {
 
 .float-right {
 	float:right;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }

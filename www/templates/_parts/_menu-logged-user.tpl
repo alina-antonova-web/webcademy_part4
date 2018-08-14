@@ -12,10 +12,10 @@
       <nav class="header-user__nav">
         <ul class="menu">
           <li><a href="<?=HOST?>">Главная</a></li>
-          <li><a href="/about.html">Обо мне</a></li>
-          <li><a href="/works.html">Работы</a></li>
+          <li><a href="<?=HOST?>about">Обо мне</a></li>
+          <li><a href="<?=HOST?>works">Работы</a></li>
           <li><a href="<?=HOST?>blog">Блог</a></li>
-          <li><a href="/contact.html">Контакты</a></li>
+          <li><a href="<?=HOST?>contacts">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -27,10 +27,10 @@
         <ul>
           <li><i class="fas fa-plus-circle"></i><a href="<?=HOST?>blog/post-new">Пост</a></li>
           <li><i class="fas fa-folder"></i><a href="<?=HOST?>blog/categories">Категории</a></li>
-          <li><i class="fas fa-edit"></i><a href="/about-edit.html">Обо мне</a></li>
-          <li><i class="fas fa-plus-circle"></i><a href="/work-edit.html">Работа</a></li>
-          <li><i class="fas fa-edit"></i><a href="/contact-edit.html">Контакты</a></li>
-          <li><i class="fas fa-envelope"></i><a href="/message-edit.html">Сообщения</a></li>
+          <li><i class="fas fa-edit"></i><a href="<?=HOST?>about-edit">Обо мне</a></li>
+          <li><i class="fas fa-plus-circle"></i><a href="<?=HOST?>works-edit">Работа</a></li>
+          <li><i class="fas fa-edit"></i><a href="<?=HOST?>contacts-edit">Контакты</a></li>
+          <li><i class="fas fa-envelope"></i><a href="<?=HOST?>messages">Сообщения</a></li>
           <li><i class="fas fa-sign-out-alt"></i><a href="<?=HOST?>logout">Выход</a></li>
         </ul>
       </nav>
