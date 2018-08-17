@@ -1,32 +1,34 @@
 <?php 
 
-$currentUser = $_SESSION['logged_user'];
+if ( !isAdmin()){
+	header("Location: " . HOST);
+	die;
+}
 
-$user = R::load('users', $currentUser->id);
+$about = R::load('about', 1);
 
-//If form was send
+$frontend_technologies = R::find('technologies', "WHERE category = 'Frontend' ORDER BY id");
+$backend_technologies = R::find('technologies', "WHERE category = 'Backend' ORDER BY id");
+$workflow_technologies = R::find('technologies', "WHERE category = 'Workflow' ORDER BY id");
+
+
+$works = R::find('works', "ORDER BY id");
+
 $errors = array();
 
-if (isset($_POST['profile-update'])) {	
+if (isset($_POST['saveAbout'])) {	
 
-	if (trim($_POST['email']) == '' ){
-		$errors[] = ['title' => 'Email не может быть пустым'];
-	}
-
-	if (trim($_POST['name']) == '' ){
+	if (trim($_POST['userName']) == '' ){
 		$errors[] = ['title' => 'Имя не может быть пустым'];
 	}
-
-	if (trim($_POST['secondname']) == '' ){
-		$errors[] = ['title' => 'Поле "Фамилия" не может быть пустым'];
+	if (trim($_POST['userInfo']) == '' ){
+		$errors[] = ['title' => 'Информация на главной не может быть пустой'];
 	}
 
 	if (empty($errors)) {
-		$user->email = htmlentities($_POST['email']);
-		$user->name = htmlentities($_POST['name']);
-		$user->secondname = htmlentities($_POST['secondname']);
-		$user->country = htmlentities($_POST['country']);
-		$user->city = htmlentities($_POST['city']);
+
+		$about->name = htmlentities($_POST['userName']);
+		$about->description = htmlentities($_POST['userInfo']);
 
 		if ( isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] != "" ) {
 			
@@ -53,15 +55,12 @@ if (isset($_POST['profile-update'])) {
 				$errors[] = ['title' => 'An unknown error occured'];	
 			} 
 
-			$avatar = $user->photo;
+			$avatar = $about->photo;
 			$avatarFolderLocation = ROOT . 'usercontent/avatar/';
 
 			if ($avatar != "") {
 				$picurl = $avatarFolderLocation . $avatar;
 				if (file_exists($picurl)) { unlink($picurl); }
-				
-				$picurl_small = $avatarFolderLocation . 'small/' . $avatar;
-				if (file_exists($picurl_small)) { unlink($picurl_small); }
 			}
 
 			$uploadfile = $avatarFolderLocation . $db_file_name;
@@ -79,33 +78,37 @@ if (isset($_POST['profile-update'])) {
 			$img = createThumbnailSquare($target_file, $wmax, $hmax);
 			$img->writeImage($resized_file);
 
-			// Small avatar
-
-			$resized_file = $avatarFolderLocation . 'small/' . $db_file_name;
-			$wmax = 48;
-			$hmax = 48;
-			$img = createThumbnailSquare($target_file, $wmax, $hmax);
-			$img->writeImage($resized_file);
-
-			$user->photo = $db_file_name;
+			$about->photo = $db_file_name;
 
 
-		}
+		} 
 
-		R::store($user);
+		R::store($about);
 
-		$_SESSION['logged_user'] = $user;
-		$_SESSION['login'] = "1";
-		$_SESSION['role'] = $user->role;
-		$currentUser = $_SESSION['logged_user'];
-
-		header('Location: '.HOST.'profile');
-		exit();
 	}
 }
 
+if (isset($_POST['saveTechnologies'])) {
+	$sql = '';
+	foreach ($_POST as $skill => $value) {
+		
+		if ($skill != 'saveTechnologies') {
+			$sql .= "UPDATE `technologies` SET `percent` = '".intval($value)."' WHERE `technologies`.`name` = '$skill'; ";
+		}
+	}
+
+	$update = R::getAll($sql);
+
+	$frontend_technologies = R::find('technologies', "WHERE category = 'Frontend' ORDER BY id");
+	$backend_technologies = R::find('technologies', "WHERE category = 'Backend' ORDER BY id");
+	$workflow_technologies = R::find('technologies', "WHERE category = 'Workflow' ORDER BY id");
+
+}
+
+
+//Content for main part
 ob_start();
-include ROOT . "templates/profile/profile-edit.tpl";
+include ROOT . "templates/about/edit.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

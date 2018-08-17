@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 14, 2018 at 01:41 PM
+-- Generation Time: Aug 17, 2018 at 07:05 PM
 -- Server version: 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -29,15 +29,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `about` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `photo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `about`
 --
 
-INSERT INTO `about` (`id`, `name`, `description`) VALUES
-(1, 'Алина Антонова', 'Я веб-разработчик.');
+INSERT INTO `about` (`id`, `name`, `description`, `photo`) VALUES
+(1, 'Алина Антонова', 'Я веб разработчик. Мне 31 год. Занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.\r\nЭтот сайт я сделал в рамках обучения в школе онлайн обучения WebCademy. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!\r\nЧто я умею\r\nМеня привлекет Frontend разработка, это не только моя работа, но и хобби.Также знаком и могу решать не сложные задачи на Backend.\r\nЗнаком и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp.', '474212482757.jpg');
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,7 @@ CREATE TABLE `messages` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `text` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `text` text COLLATE utf8mb4_unicode_520_ci,
   `file` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `file_name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
@@ -164,6 +165,35 @@ INSERT INTO `messages` (`id`, `name`, `email`, `text`, `file`, `date`, `file_nam
 (5, 'Емельян', 'test@test.ru', 'dad', '925062370439.png', '2018-08-13 21:53:23', 'php-hw04.png'),
 (6, '', 'only_email@test.ru', '', NULL, '2018-08-13 22:19:46', NULL),
 (20, '', 'test@test.ru', 'pdf', '998046487243.pdf', '2018-08-14 11:14:56', 'extreme_programming.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `technologies`
+--
+
+CREATE TABLE `technologies` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `percent` int(11) NOT NULL,
+  `category` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `technologies`
+--
+
+INSERT INTO `technologies` (`id`, `name`, `percent`, `category`) VALUES
+(3, 'HTML5', 95, 'Frontend'),
+(4, 'CSS3', 85, 'Frontend'),
+(5, 'JS', 80, 'Frontend'),
+(6, 'jQuery', 70, 'Frontend'),
+(7, 'PHP', 95, 'Backend'),
+(8, 'MySql', 85, 'Backend'),
+(9, 'Git', 90, 'Workflow'),
+(10, 'Gulp', 30, 'Workflow'),
+(11, 'Bower', 20, 'Workflow'),
+(12, 'WebPack', 20, 'Workflow');
 
 -- --------------------------------------------------------
 
@@ -190,9 +220,30 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `secondname`, `photo`, `country`, `city`, `role`, `recovery_code`, `recovery_code_times`) VALUES
-(1, 'info@rightblog.ru', '$2y$10$GVjEQepTKA3qOq6cs/BAYeQDbpjZyKiagXrDD7vWg8VJCk1nvkSay', 'Емельян', 'Казаков', '541672988655.jpg', '', '', 'admin', NULL, NULL),
+(1, 'info@rightblog.ru', '$2y$10$GVjEQepTKA3qOq6cs/BAYeQDbpjZyKiagXrDD7vWg8VJCk1nvkSay', 'Емельян', 'Казаков', '929758145613.jpg', '', '', 'admin', NULL, NULL),
 (7, 'alina3a@bk.ru', '$2y$10$2xFS8WhmV9AqUWxEK3xcn.7zWc9vn.jg24LmVnfjPEpKM4Fx/Lb42', 'Alina', 'Antonova', '243793548829.jpg', 'Germany', 'Ulm', 'user', 'SJfKpzWYZjdTwUx', 0),
 (9, 'test@mail.ru', '$2y$10$cE5R4Djb6ASNiZe6icFQCuFy3RKJ8o06rqXWuXVGMBkQ84JdjUxPm', 'Василий', 'Кузнецов', '', 'РФ', 'Саратов', 'user', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `works`
+--
+
+CREATE TABLE `works` (
+  `id` int(11) NOT NULL,
+  `period` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `works`
+--
+
+INSERT INTO `works` (`id`, `period`, `name`, `description`) VALUES
+(1, 'октябрь 2008 - май 2015', 'Web-мастер, ООО &quot;Эксклюзив&quot; Санкт-Петербург', 'Разработка и поддержка сайтов компании;\r\nОпыт работы с  Legacy-Code, тестирование и отладка приложений, поиск ошибок;\r\nРазработка на  PHP, JavaScript, ActionScript;\r\nГенерация XML файлов для яндекс и google маркетов;\r\nОпыт работы с базами данных  MySQL, PostgreSQL;\r\nИспользование системы контроля версий с помощью Tortoise SVN Client.'),
+(3, 'июнь 2015 - по настоящее время', 'Фриланс', '');
 
 --
 -- Indexes for dumped tables
@@ -237,9 +288,22 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `technologies`
+--
+ALTER TABLE `technologies`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `works`
+--
+ALTER TABLE `works`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -277,10 +341,20 @@ ALTER TABLE `contacts`
 ALTER TABLE `messages`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
+-- AUTO_INCREMENT for table `technologies`
+--
+ALTER TABLE `technologies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `works`
+--
+ALTER TABLE `works`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --

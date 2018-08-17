@@ -7,6 +7,17 @@
       flex: 1; } 
   }
 
+.work-item--admin .button {
+  position: relative;
+  top: 0;
+}
+
+.work-item--admin .button-delete {
+  float: right;
+  margin: 0;
+  margin-right: 10px;
+}
+
 .button, a.button {
 	padding: 10px 30px 7px;
 }

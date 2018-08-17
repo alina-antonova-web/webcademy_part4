@@ -11,7 +11,7 @@ $(document).ready(function() {
   
   var skills_frontend = $('#skills_frontend');
   $.each($(skills_frontend).children(), function(index, el) {
-    console.log(el.id);
+    // console.log(el.id);
     var myCircle = Circles.create({
       id:                  el.id,
       radius:              radius,
@@ -32,7 +32,7 @@ $(document).ready(function() {
 
    var skills_backend = $('#skills_backend');
   $.each($(skills_backend).children(), function(index, el) {
-    console.log(el.id);
+    //console.log(el.id);
     var myCircle = Circles.create({
       id:                  el.id,
       radius:              radius,
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
    var skills_workflow = $('#skills_workflow');
   $.each($(skills_workflow).children(), function(index, el) {
-    console.log(el.id);
+    //console.log(el.id);
     var myCircle = Circles.create({
       id:                  el.id,
       radius:              radius,
