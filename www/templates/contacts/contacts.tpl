@@ -80,12 +80,14 @@
       <div class="map-conteiner" id="map"></div>
     </div>
 
-    <script>
-      const city = { lat:<?=$contacts->lat?>, lng: <?=$contacts->lng?> };
-      const markerTitle = "Marker Title";
+    <script>      
+        const city = { lat:<?=$contacts->lat?>, lng: <?=$contacts->lng?> };
+        const markerTitle = "Marker Title";
     </script>
 
     <script src="<?=HOST?>templates/assets/js/googleMap.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIr67yxxPmnF-xb4JVokCVGgLbPtuqxiA&callback=initMap"></script>
 
   <?php } ?>
+
+    <script src="<?php echo HOST;?>templates/assets/js/fileReader.js"></script>

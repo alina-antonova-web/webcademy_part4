@@ -29,7 +29,12 @@ if (isset($_POST['lost'])) {
 			$recovery_message .= "<p><a href='".HOST."set-new-password?email=".$user->email."&code=".$recovery_code."' target='_blank'>";
 			$recovery_message .= "Установить новый пароль</a></p>";
 
-			if ( mail($user->email, 'Восстановление доступа', $recovery_message) ) {
+			$headers = "MIME-Version: 1.0" . PHP_EOL . 
+						"Content-Type: text/html; charset=utf-8" . PHP_EOL . 
+						"From:" . adopt(SITE_NAME) . "<" . SITE_EMAIL . ">" . PHP_EOL . 
+						"Reply-To: " . ADMIN_EMAIL;
+
+			if ( mail($user->email, 'Восстановление доступа', $recovery_message, $headers) ) {
 				$success[] = "Инструкции по восстановлению доступа отправленны на ". $user->email;
 			}
 			

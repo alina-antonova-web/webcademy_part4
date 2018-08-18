@@ -6,7 +6,7 @@ $frontend_technologies = R::find('technologies', "WHERE category = 'Frontend' OR
 $backend_technologies = R::find('technologies', "WHERE category = 'Backend' ORDER BY id");
 $workflow_technologies = R::find('technologies', "WHERE category = 'Workflow' ORDER BY id");
 
-$works = R::find('works', "ORDER BY id DESC");
+$works = R::find('jobs', "ORDER BY id DESC");
 
 //Content for main part
 ob_start();

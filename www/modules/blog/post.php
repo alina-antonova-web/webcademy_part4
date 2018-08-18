@@ -1,15 +1,23 @@
 <?php 
 
-//$post = R::findOne('blog', 'id = ?', array($_GET['id']));
-
 $post = R::getAll("SELECT blog.*, users.name, users.secondname, categories.name as catName  FROM blog 
 	INNER JOIN users ON blog.author = users.id
 	INNER JOIN categories ON blog.tag = categories.id 
  	WHERE
-	        blog.id = '".htmlentities($_GET['id'])."'
+	        blog.id = '".intval($_GET['id'])."'
 	LIMIT 1");
 
+if (!$post) {
+	$post = R::getAll("SELECT blog.*, users.name, users.secondname, categories.name as catName  FROM blog 
+	INNER JOIN users ON blog.author = users.id
+	INNER JOIN categories ON blog.tag = categories.id 
+ 	WHERE
+	        blog.id = '1'
+	LIMIT 1");
+}
+
 $post = $post[0];
+
 
 $errors = array();
 

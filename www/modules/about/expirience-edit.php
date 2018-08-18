@@ -8,7 +8,7 @@ if ( !isAdmin()){
 $errors = array();
 
 if (isset($_GET['id'])) {
-	$work = R::load('works', $_GET['id']);
+	$work = R::load('jobs', $_GET['id']);
 	$action_title = 'Редактировать';
 } 
 
@@ -23,9 +23,9 @@ if (isset($_POST['addWork']) || isset($_POST['editWork'])) {
 	if (empty($errors)) {
 
 		if (isset($_POST['addWork']) ){
-			$work = R::dispense('works');
+			$work = R::dispense('jobs');
 		} else {
-			$work = R::load('works', $_POST['work-id']);
+			$work = R::load('jobs', $_POST['work-id']);
 		}
 		$work->period = htmlentities($_POST['work-period']);
 		$work->name = htmlentities($_POST['work-name']);
@@ -41,7 +41,7 @@ if (isset($_POST['addWork']) || isset($_POST['editWork'])) {
 			$work = array('id'=> "new", 'period' => $_POST['work-period'], 'name' => $_POST['work-name'], 'description' => $_POST['work-description']);
 			$action_title = 'Добавить';
 		} else {
-			$work = R::load('works', $_POST['work-id']);
+			$work = R::load('jobs', $_POST['work-id']);
 			$action_title = 'Редактировать';
 		}
 	}

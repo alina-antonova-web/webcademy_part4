@@ -15,11 +15,8 @@
         </div>
         <div class="col-md-5 col-sm">
           <ul class="footer-icons">
-            <li><a href="https://vk.com"><i class="fab fa-vk"></i></a></li>
-            <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.youtube.com/"><i class="fab fa-youtube-square"></i></a></li>
-            <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://vk.com/maliniaka"><i class="fab fa-vk"></i></a></li>
+            <li><a href="https://www.facebook.com/alina.antonova.web"><i class="fab fa-facebook-f"></i></a></li>
           </ul>
         </div>
       </div>

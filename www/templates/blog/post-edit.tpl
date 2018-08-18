@@ -62,3 +62,7 @@
       </div>
     </div>
   </div>
+
+    <script src="<?php echo HOST;?>templates/assets/js/fileReader.js"></script>
+  <script src="<?=HOST?>libs/ckeditor/ckeditor.js"></script>
+  <script src="<?php echo HOST;?>templates/assets/js/main.js"></script>

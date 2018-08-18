@@ -8,14 +8,14 @@ if ( !isAdmin()){
 $errors = array();
 
 if (isset($_GET['id'])) {
-	$work = R::load('works', $_GET['id']);
+	$job = R::load('jobs', $_GET['id']);
 	$action_title = 'Удалить';
 	$errors[] = ['title' => 'Вы уверены, что хотите удалить запись об опыте работы?'];
 } 
 
 if (isset($_POST['deleteWork']) && isset($_POST['work-id'])) {
-	$work = R::load('works', $_POST['work-id']);
-	R::trash($work);
+	$job = R::load('jobs', $_POST['work-id']);
+	R::trash($job);
 
 	header('Location: '.HOST.'about-edit#works');
 	exit();

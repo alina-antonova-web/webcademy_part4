@@ -1,16 +1,14 @@
 <?php 
 
-$about = R::load('about', 1);
+$work = R::findOne('works', 'id = ?', array($_GET['id']));
 
-$blogPosts = R::find('blog', 'ORDER BY id DESC LIMIT 3');
+if (!$work['name']) {
+	$work = R::findOne('works', 'id = ?', array(1));
+}
 
-$works = R::find('works', 'ORDER BY id DESC LIMIT 3');
-
-$title = "Main";
-$content = "Content of main page";
-
+//Content for main part
 ob_start();
-include ROOT . "templates/main/main.tpl";
+include ROOT . "templates/works/project.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

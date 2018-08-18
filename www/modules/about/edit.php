@@ -12,7 +12,7 @@ $backend_technologies = R::find('technologies', "WHERE category = 'Backend' ORDE
 $workflow_technologies = R::find('technologies', "WHERE category = 'Workflow' ORDER BY id");
 
 
-$works = R::find('works', "ORDER BY id");
+$jobs = R::find('jobs', "ORDER BY id");
 
 $errors = array();
 

@@ -3,7 +3,7 @@
 	
 	<?php require ROOT."templates/_parts/_errors.tpl"; ?>
 
-	<div class="form-fields" id="form-fields">
+	<div class="form-fields" id="form">
 	  <input class="form-full-width" type="text" name="email" placeholder="E-mail"/>
 	  <input class="form-full-width" type="password" name="password" placeholder="Пароль"/>
 	</div>

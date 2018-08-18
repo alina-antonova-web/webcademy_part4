@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 18, 2018 at 04:43 PM
+-- Generation Time: Aug 18, 2018 at 11:18 PM
 -- Server version: 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -38,7 +38,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `name`, `description`, `photo`) VALUES
-(1, 'Алина Антонова', '<p>Я веб разработчик. Мне 31 лет. Занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.</p>\r\n\r\n<p>Этот сайт я сделала в рамках обучения в школе онлайн обучения <a href="http://webcademy.ru/" target="_blank">WebCademy</a>. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>\r\n\r\n<h3>Что я умею</h3>\r\n\r\n<p>Меня привлекет Frontend разработка, это не только моя работа, но и хобби.Также знаком и могу решать не сложные задачи на Backend.</p>\r\n\r\n<p>Знакома и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp.</p>\r\n', '474212482757.jpg');
+(1, 'Алина Антонова', '<p>Я веб разработчик. Мне 31 год. Занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.</p>\r\n\r\n<p>Этот сайт я сделала в рамках обучения в школе онлайн обучения <a href="http://webcademy.ru/" target="_blank">WebCademy</a>. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>\r\n\r\n<h3>Что я умею</h3>\r\n\r\n<p>Меня привлекет Frontend разработка, это не только моя работа, но и хобби.Также знаком и могу решать не сложные задачи на Backend.</p>\r\n\r\n<p>Знакома и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp.</p>\r\n', '474212482757.jpg');
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,8 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `post_id`, `author_id`, `date`, `text`) VALUES
 (1, 8, 7, '2018-08-12 14:52:21', 'Привет! Это тестовый коммент!'),
-(2, 8, 1, '2018-08-12 15:22:05', 'Привет, привет!');
+(2, 8, 1, '2018-08-12 15:22:05', 'Привет, привет!'),
+(3, 9, 10, '2018-08-18 15:25:11', 'Привет!');
 
 -- --------------------------------------------------------
 
@@ -140,6 +141,27 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`id`, `name`, `secondname`, `email`, `skype`, `vk`, `fb`, `github`, `phone`, `address`, `lat`, `lng`) VALUES
 (1, '', '', 'antonova.alina@gmail.com', '', '', '', 'https://github.com/alina-antonova-web', '+4915754833931', 'Sonnenhalde 83,\r\n<br>\r\n89075 Ulm', 48.402568, '9.977842');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL,
+  `period` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `period`, `name`, `description`) VALUES
+(1, 'октябрь 2008 - май 2015', 'Web-мастер, ООО &quot;Эксклюзив&quot; Санкт-Петербург', '<ul>\r\n	<li>Разработка и поддержка сайтов компании;</li>\r\n	<li>Опыт работы с Legacy-Code, тестирование и отладка приложений, поиск ошибок;</li>\r\n	<li>Разработка на PHP, JavaScript, ActionScript;</li>\r\n	<li>Генерация XML файлов для яндекс и google маркетов;</li>\r\n	<li>Опыт работы с базами данных MySQL, PostgreSQL;</li>\r\n	<li>Использование системы контроля версий с помощью Tortoise SVN Client.</li>\r\n</ul>\r\n'),
+(3, 'июнь 2015 - по настоящее время', 'Фриланс', '');
 
 -- --------------------------------------------------------
 
@@ -224,7 +246,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `secondname`, `photo`, `country`, `city`, `role`, `recovery_code`, `recovery_code_times`) VALUES
 (1, 'info@rightblog.ru', '$2y$10$GVjEQepTKA3qOq6cs/BAYeQDbpjZyKiagXrDD7vWg8VJCk1nvkSay', 'Емельян', 'Казаков', '929758145613.jpg', '', '', 'admin', NULL, NULL),
 (7, 'alina3a@bk.ru', '$2y$10$2xFS8WhmV9AqUWxEK3xcn.7zWc9vn.jg24LmVnfjPEpKM4Fx/Lb42', 'Alina', 'Antonova', '243793548829.jpg', 'Germany', 'Ulm', 'user', 'SJfKpzWYZjdTwUx', 0),
-(9, 'test@mail.ru', '$2y$10$cE5R4Djb6ASNiZe6icFQCuFy3RKJ8o06rqXWuXVGMBkQ84JdjUxPm', 'Василий', 'Кузнецов', '', 'РФ', 'Саратов', 'user', NULL, NULL);
+(9, 'test@mail.ru', '$2y$10$cE5R4Djb6ASNiZe6icFQCuFy3RKJ8o06rqXWuXVGMBkQ84JdjUxPm', 'Василий', 'Кузнецов', '', 'РФ', 'Саратов', 'user', NULL, NULL),
+(10, 'newtest@test.ru', '$2y$10$9ZY2CHgJJqJq4GyQu5Ene.82wQzUGlMeUtDafPNiTtG/.Xg8MLUC.', '', '', '', '', '', 'user', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -234,18 +257,20 @@ INSERT INTO `users` (`id`, `email`, `password`, `name`, `secondname`, `photo`, `
 
 CREATE TABLE `works` (
   `id` int(11) NOT NULL,
-  `period` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `works`
 --
 
-INSERT INTO `works` (`id`, `period`, `name`, `description`) VALUES
-(1, 'октябрь 2008 - май 2015', 'Web-мастер, ООО &quot;Эксклюзив&quot; Санкт-Петербург', 'Разработка и поддержка сайтов компании;\r\nОпыт работы с  Legacy-Code, тестирование и отладка приложений, поиск ошибок;\r\nРазработка на  PHP, JavaScript, ActionScript;\r\nГенерация XML файлов для яндекс и google маркетов;\r\nОпыт работы с базами данных  MySQL, PostgreSQL;\r\nИспользование системы контроля версий с помощью Tortoise SVN Client.'),
-(3, 'июнь 2015 - по настоящее время', 'Фриланс', '');
+INSERT INTO `works` (`id`, `name`, `description`, `photo`, `date`) VALUES
+(1, 'Учебный макет Organica', '<p>Вёрстка одностраничного сайта по PSD макету.</p>\r\n', '192888582032.png', '2018-08-18 18:50:50'),
+(2, 'Учебный макет Аполло', '<p>Вёрстка лендинга хостинг компании. Мобильная адаптивность.</p>\r\n', '539003436313.png', '2018-08-18 19:26:11'),
+(3, 'Магазин шин и дисков', '<p>Вёрстка сайта, администрирование базы данных MySQL, написание javascript, PHP скриптов, Ajax запросов.</p>\r\n', '562121504778.png', '2018-08-18 19:27:32');
 
 --
 -- Indexes for dumped tables
@@ -281,6 +306,12 @@ ALTER TABLE `comments`
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -331,12 +362,17 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -351,7 +387,7 @@ ALTER TABLE `technologies`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `works`
 --

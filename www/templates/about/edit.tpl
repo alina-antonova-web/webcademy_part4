@@ -20,6 +20,10 @@
                   </label>
                   <input class="form-download__file-name" id="value" type="text"  value="Файл не выбран" disabled="disabled"/>
                 </div>
+                <div class="form-download__preview">
+                <div class="form-download__preview__container" id="output" style="display:none;">
+                </div>
+              </div>
               </div>
               <div class="avatar avatar-big">
                 <img src="<?=HOST?>/usercontent/avatar/<?=$about->photo?>" alt=""/>
@@ -78,19 +82,19 @@
         <div class="col"></div>
         <div class="col-10">
           <h2 class="about-block-title" id="works">Опыт работы</h2>
-          <?php foreach ($works as $work): ?>
+          <?php foreach ($jobs as $job): ?>
             <div class="work-item--admin">
               <div>
                 <div>
-                  <a class="button button-edit" href="<?=HOST?>about-expirience-edit?id=<?=$work['id']?>"> Редактировать </a>
+                  <a class="button button-edit" href="<?=HOST?>about-expirience-edit?id=<?=$job['id']?>"> Редактировать </a>
                 </div>
                 <div>
-                  <a class="button button-delete" href="<?=HOST?>about-expirience-delete?id=<?=$work['id']?>"> Удалить </a>
+                  <a class="button button-delete" href="<?=HOST?>about-expirience-delete?id=<?=$job['id']?>"> Удалить </a>
                 </div>
               </div>
-              <div class="work-item__date"><?=$work['period']?></div>
-              <div class="work-item-profile"><span class="work-item-profile__name"><?=$work['name']?></span></div>
-              <div class="work-item__message"><?=$work['description']?></div>
+              <div class="work-item__date"><?=$job['period']?></div>
+              <div class="work-item-profile"><span class="work-item-profile__name"><?=$job['name']?></span></div>
+              <div class="work-item__message"><?=$job['description']?></div>
             </div>
             <?php endforeach ?>
         </div>
@@ -122,3 +126,7 @@
       </div>
     </div>
   </div>
+
+  <script src="<?php echo HOST;?>templates/assets/js/fileReader.js"></script>
+  <script src="<?=HOST?>libs/ckeditor/ckeditor.js"></script>
+  <script src="<?php echo HOST;?>templates/assets/js/main.js"></script>

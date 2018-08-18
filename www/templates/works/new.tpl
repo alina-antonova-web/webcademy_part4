@@ -3,21 +3,12 @@
       <div class="row">
         <div class="col"></div>
         <div class="col-10">
-          <h1>Добавить пост</h1>
+          <h1>Добавить работу</h1>
           <?php require ROOT."templates/_parts/_errors.tpl"; ?>
-          <form enctype="multipart/form-data" method="POST" action="<?=HOST?>blog/post-new">
+          <form enctype="multipart/form-data" method="POST" action="<?=HOST?>work-new">
           <section class="add-post">
             <div class="add-post__title">Название</div>
             <input class="form-full-width" type="text" name="title" placeholder="Введите название поста"/>
-          </section>
-          <section class="add-post">
-            <div class="add-post__title">Категория</div>
-            <select name="tag">
-              <option disabled>Выберите категорию</option>
-              <?php foreach ($categories as $category): ?>
-                <option value="<?=$category['id']?>"><?=$category['name']?></option>
-              <?php endforeach ?>
-           </select>
           </section>
           <section class="add-post">
             <div class="add-post__title">Изображение</div>
@@ -36,12 +27,12 @@
             </div>
           </section>
           <section class="add-post">
-            <div class="add-post__title">Содержание</div>
+            <div class="add-post__title">Описание</div>
             <textarea class="form-message" name="description" id="CKeditor" placeholder="Текст поста"></textarea>
           </section>
           <section class="add-post">
-            <input class="button button-save" type="submit" name="addPost" value="Сохранить"/>
-            <a class="button button-regular" href="<?=HOST?>blog"> Отмена </a>
+            <input class="button button-save" type="submit" name="addProjeckt" value="Сохранить"/>
+            <a class="button button-regular" href="<?=HOST?>works"> Отмена </a>
           </section>
         </form>
          
@@ -51,6 +42,6 @@
     </div>
   </div>
 
-    <script src="<?php echo HOST;?>templates/assets/js/fileReader.js"></script>
+      <script src="<?php echo HOST;?>templates/assets/js/fileReader.js"></script>
   <script src="<?=HOST?>libs/ckeditor/ckeditor.js"></script>
   <script src="<?php echo HOST;?>templates/assets/js/main.js"></script>

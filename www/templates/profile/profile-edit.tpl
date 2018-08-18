@@ -50,3 +50,5 @@
       </div>
     </div>
   </div>
+
+    <script src="<?php echo HOST;?>templates/assets/js/fileReader.js"></script>

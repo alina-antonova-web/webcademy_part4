@@ -1,11 +1,8 @@
-
-
-
 function handleFileSelect(evt) {
     var fileNameInp =  document.querySelectorAll('#value');
     var file = evt.target.files; // FileList object
     var f = file[0];
-    console.log(file.value);
+    // console.log(f.name);
     // Only process image files.
     /*if (!f.type.match('image.*')) {
         alert("Image only please....");
@@ -38,7 +35,7 @@ function handleFileSelect(evt) {
             link.classList.add('testBtn');
             link.innerHTML = 'Удалить';
 
-            deleteImg.appendChild(link);
+            //deleteImg.appendChild(link);
             
             var img = document.createElement('img');
             img.classList.add('form-download__image');
@@ -61,6 +58,7 @@ function handleFileSelect(evt) {
 
     
 }
+
 document.getElementById('file').addEventListener('change', handleFileSelect, false);
-document.getElementById('file2').addEventListener('change', handleFileSelect, false);
+// document.getElementById('file2').addEventListener('change', handleFileSelect, false);
 
