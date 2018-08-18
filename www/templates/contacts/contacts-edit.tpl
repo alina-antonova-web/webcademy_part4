@@ -44,6 +44,20 @@
             <div class="edit-inp form-edit_wrap fix-margin">Адрес
               <textarea class="form-message" name="address" cols="30" rows="10"><?=$contacts->address?></textarea>
             </div>
+
+            <div class="row-wrap">
+              
+              <div class="edit-inp form-edit_wrap"><span>Координаты</span>
+                <div class="row-inp">
+                  <span>Широта</span>
+                  <input class="form-name edit-input" type="text" name="lat" value="<?=$contacts->lat?>"/>
+                </div>
+                <div class="row-inp">
+                  <span>Долгота</span>
+                  <input class="form-name edit-input" type="text" name="lng" value="<?=$contacts->lng?>"/>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row-inp button-row">

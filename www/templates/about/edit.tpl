@@ -27,7 +27,7 @@
             </section>
             <section class="add-post">
               <div class="add-post__title">Информация на главной</div>
-              <textarea class="form-message" name="userInfo" placeholder="Информация на главной"><?=$about->description?></textarea>
+              <textarea class="form-message" name="userInfo" id="CKeditor" placeholder="Информация на главной"><?=$about->description?></textarea>
             </section>
             <div class="row-inp button-row">
               <input class="button button-save" type="submit" name="saveAbout" value="Сохранить"/>
@@ -112,7 +112,7 @@
               </section>
               <section class="add-post add-work">
                 <div class="add-post__title">Описание работы, должностные обязанности, достигнутые результат</div>
-                <textarea class="form-message" name="work-description" placeholder="Напишите интересное краткое содержательное описание"></textarea>
+                <textarea class="form-message" name="work-description" id="CKeditor2" placeholder="Напишите интересное краткое содержательное описание"></textarea>
                 <input class="button button-save" type="submit" name="addWork" value="Добавить"/>
               </section>             
             </div>

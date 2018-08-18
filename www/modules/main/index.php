@@ -1,9 +1,8 @@
 <?php 
 
-$details = R::find('about', 1);
+$about = R::load('about', 1);
 
-$aboutName = $details[1]['name'];
-$aboutDescription = $details[1]['description'];
+$blogPosts = R::find('blog', 'ORDER BY id DESC LIMIT 3');
 
 $title = "Main";
 $content = "Content of main page";

@@ -23,9 +23,9 @@ if (isset($_POST['addPost'])) {
 
 		$post = R::dispense('blog');
 		$post->title = htmlentities($_POST['title']);
-		$post->text = htmlentities($_POST['description']);
+		$post->text = $_POST['description'];
 		$post->author = $currentUser->id;
-		$post->tag = htmlentities($_POST['tag']);
+		$post->tag = $_POST['tag'];
 
 		if ( isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != "" ) {
 			

@@ -33,15 +33,27 @@
                 </label>
                 <input class="form-download__file-name" id="value" type="text"  value="<?=$post['image']?>" disabled="disabled"/>
               </div>
+              <?php if($post['image']) { ?>
+              <div class="form-download__preview">
+                <div class="form-download__preview__container" id="output">
+                  <div class="form-download__preview__delete"><a class="testBtn" id="deletePostImg">Удалить</a></div>
+                  <div class="form-download__image-container"><img class="form-download__image" src="<?=HOST?>usercontent/blog/small/<?=$post['image']?>"/></div>
+                </div>
+              </div>
+              <div class="save-check__block" id="deletePostImgCheckBox" style="display: none;">
+                <input id="save-check" type="checkbox" name="deleteImg" hidden="hidden"/>
+                <label for="save-check">Картинка будет удалена</label>
+              </div>
+              <?php } ?>
             </div>
           </section>
           <section class="add-post">
             <div class="add-post__title">Содержание</div>
-            <textarea class="form-message" name="description" placeholder="Текст поста"><?=$post['text']?></textarea>
+            <textarea class="form-message" name="description" id="CKeditor" placeholder="Текст поста"><?=$post['text']?></textarea>
           </section>
           <section class="add-post">
             <input class="button button-save" type="submit" name="editPost" value="Сохранить"/>
-            <a class="button button-regular" href="<?=HOST?>blog"> Отмена </a>
+            <a class="button button-regular" href="<?=HOST?>blog/post?id=<?=$post['id']?>"> Отмена </a>
           </section>
         </form>
          

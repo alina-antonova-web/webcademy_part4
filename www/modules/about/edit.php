@@ -28,7 +28,7 @@ if (isset($_POST['saveAbout'])) {
 	if (empty($errors)) {
 
 		$about->name = htmlentities($_POST['userName']);
-		$about->description = htmlentities($_POST['userInfo']);
+		$about->description = $_POST['userInfo'];
 
 		if ( isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] != "" ) {
 			

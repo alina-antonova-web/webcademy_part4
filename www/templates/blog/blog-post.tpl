@@ -17,7 +17,9 @@
             <a class="full-post__link" href="#comments"><?=count($comments)?> комментари<?=getTermination(count($comments)) ?> </a>
           <?php } ?>
           <article>
-            <img class="full-post__img" src="<?=HOST?>usercontent/blog/<?=$post['image']?>" />
+            <?php if ($post['image']) { ?>
+              <img class="full-post__img" src="<?=HOST?>usercontent/blog/<?=$post['image']?>" />
+            <?php } ?>
             <?=$post['text']?>
           </article>
           <div class="full-post__next-prew">

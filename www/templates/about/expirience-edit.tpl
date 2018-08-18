@@ -18,7 +18,7 @@
               </section>
               <section class="add-post add-work">
                 <div class="add-post__title">Описание работы, должностные обязанности, достигнутые результат</div>
-                <textarea class="form-message" name="work-description" placeholder="Напишите интересное краткое содержательное описание"><?=$work['description']?></textarea>
+                <textarea class="form-message" name="work-description" id="CKeditor" placeholder="Напишите интересное краткое содержательное описание"><?=$work['description']?></textarea>
                 <?php if ( $action_title == "Добавить" ) { ?>
                   <input class="button button-save" type="submit" name="addWork" value="Сохранить"/>
                 <?php } else { ?>

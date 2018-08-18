@@ -1,6 +1,8 @@
   
 
   <script src="<?php echo HOST;?>templates/assets/libs/jquery/jquery.min.js"></script>
+  
+  <script src="<?=HOST?>libs/ckeditor/ckeditor.js"></script>
 
   <script src="<?php echo HOST;?>templates/assets/js/navigation.js"></script>
 
@@ -11,8 +13,9 @@
   <script src="<?=HOST?>templates/assets/js/circles/circles.min.js"></script>
   <script src="<?=HOST?>templates/assets/js/skills-circles.js"></script>
 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIr67yxxPmnF-xb4JVokCVGgLbPtuqxiA&callback=initMap"></script>
-  <script src="<?=HOST?>templates/assets/js/googleMap.js"></script>
+
+
+
 
 </body>
 </html>

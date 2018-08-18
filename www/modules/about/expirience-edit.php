@@ -29,7 +29,7 @@ if (isset($_POST['addWork']) || isset($_POST['editWork'])) {
 		}
 		$work->period = htmlentities($_POST['work-period']);
 		$work->name = htmlentities($_POST['work-name']);
-		$work->description = htmlentities($_POST['work-description']);
+		$work->description = $_POST['work-description'];
 
 		R::store($work);
 

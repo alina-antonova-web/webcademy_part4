@@ -29,7 +29,9 @@ if (isset($_POST['saveContacts'])) {
 		$contacts->fb = htmlentities($_POST['fb']);
 		$contacts->github = htmlentities($_POST['github']);
 		$contacts->phone = htmlentities($_POST['phone']);
-		$contacts->address = htmlentities($_POST['address']);
+		$contacts->address = $_POST['address'];
+		$contacts->lat = $_POST['lat'];
+		$contacts->lng = $_POST['lng'];
 
 		R::store($contacts);
 

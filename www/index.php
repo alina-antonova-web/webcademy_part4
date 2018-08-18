@@ -114,6 +114,9 @@ switch ( $uri[0] ) {
 		break;
 
 
+	case 'libs/ckeditor/samples/index.html':
+		include "libs/ckeditor/samples/index.html";
+		break;
 
 	default:
 		include "modules/main/index.php";

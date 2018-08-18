@@ -33,7 +33,7 @@
           </section>
           <section class="add-post">
             <div class="add-post__title">Содержание</div>
-            <textarea class="form-message" name="description" placeholder="Текст поста"></textarea>
+            <textarea class="form-message" name="description" id="CKeditor" placeholder="Текст поста"></textarea>
           </section>
           <section class="add-post">
             <input class="button button-save" type="submit" name="addPost" value="Сохранить"/>

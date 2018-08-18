@@ -24,8 +24,22 @@ if (isset($_POST['editPost'])) {
 	if (empty($errors)) {
 
 		$post->title = htmlentities($_POST['title']);
-		$post->text = htmlentities($_POST['description']);
-		$post->tag = $_POST['tag'];
+		$post->text = $_POST['description'];
+		$post->tag = intval($_POST['tag']);
+
+		if ($_POST['deleteImg'] == 'on' ){
+			$image = $post->image;
+			$imageFolderLocation = ROOT . 'usercontent/blog/';
+
+			if ($image != "") {
+				$picurl = $imageFolderLocation . $image;
+				if (file_exists($picurl)) { unlink($picurl); }
+				
+				$picurl_small = $imageFolderLocation . 'small/' . $image;
+				if (file_exists($picurl_small)) { unlink($picurl_small); }
+			}
+			$post->image = '';
+		}
 
 		if ( isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != "" ) {
 			
@@ -52,7 +66,16 @@ if (isset($_POST['editPost'])) {
 				$errors[] = ['title' => 'An unknown error occured'];	
 			} 
 
+			$image = $post->image;
 			$imageFolderLocation = ROOT . 'usercontent/blog/';
+
+			if ($image != "") {
+				$picurl = $imageFolderLocation . $image;
+				if (file_exists($picurl)) { unlink($picurl); }
+				
+				$picurl_small = $imageFolderLocation . 'small/' . $image;
+				if (file_exists($picurl_small)) { unlink($picurl_small); }
+			}
 
 
 			$uploadfile = $imageFolderLocation . $db_file_name;
@@ -60,7 +83,8 @@ if (isset($_POST['editPost'])) {
 
 			if ($moveResult != true) {
 				$errors[] = ['title' => 'File upload failed'];
-			}
+			} 
+
 
 			include_once( ROOT . '/libs/image_resize_imagick.php');
 			$target_file = $imageFolderLocation . $db_file_name;
@@ -82,10 +106,13 @@ if (isset($_POST['editPost'])) {
 			$post->image = $db_file_name;
 		}
 
+
+		
+
 		R::store($post);
 
 
-		header('Location: '.HOST.'blog');
+		header('Location: '.HOST.'blog/post?id='. $post['id']);
 		exit();
 	}
 }
